@@ -1,0 +1,10 @@
+# GET http://localhost:3001/blogpost/all
+
+
+POST http://localhost:3001/blogpost/create HTTP/1.1
+content-type: application/json
+
+{
+    "title": "My first blog post",
+    "content": "This is my first blog post"
+}
