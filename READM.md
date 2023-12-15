@@ -1,3 +1,7 @@
+# CDAZZDEV
+
+CDAZZDEV is a web application that allows users to create and share their own code snippets. CDAZZDEV is built using React, Redux, Node.js, Express, MongoDB, and the Ace Editor.
+
 ## Install
 
 ```console
