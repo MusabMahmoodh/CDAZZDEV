@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGODB_URI as string);
 
 // Routes
 app.use("/auth", authRoutes);
-app.use("/blogpost", blogPostRoutes);
+app.use("/blogposts", blogPostRoutes);
 
 // Start the server
 app.listen(PORT, () => {

@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
+import UserModel from "../models/User";
 
-const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
+const authMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   const token = req.header("x-auth-token");
 
   if (!token) {
@@ -10,7 +11,9 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
-    req.body.userId = (decoded as { userId: string }).userId;
+    const userId = (decoded as { userId: string }).userId;
+    req.body.user = await UserModel.findById(userId);
+
     next();
   } catch (error) {
     console.error(error);
